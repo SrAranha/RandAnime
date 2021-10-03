@@ -1,0 +1,16 @@
+{
+  "name": "randanime",
+  "version": "1.0.0",
+  "description": "",
+  "main": "randanime.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "edit-json-file": "^1.6.0",
+    "puppeteer": "^10.4.0"
+  }
+}
