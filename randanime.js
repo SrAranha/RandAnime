@@ -1,5 +1,7 @@
-const puppeteer = require('puppeteer');
-const editJsonFile = require('edit-json-file');
+var puppeteer = require('puppeteer');
+var editJsonFile = require('edit-json-file');
+var nodeNotifier = require('node-notifier');
+var open = require('open');
 
 (async () => {
     const browser = await puppeteer.launch();
@@ -51,7 +53,15 @@ const editJsonFile = require('edit-json-file');
     const secondLink = firstLink.slice(0, secondIndex);
     const finalLink = 'https://myanimelist.net' + secondLink;
     
-    
+    nodeNotifier.notify({
+        title: "The anime chosed was...",
+        appId: "RandAnime",
+        message: `${newAnime} \n ${aired}`,
+        wait: true
+    }, function() {
+        open(`${finalLink}`)
+    });
+
     // I choose this way of showing the result because its more familiar to me.
     let anime = editJsonFile('anime.json');
     anime.set('nomeDoAnime', `${newAnime}`);
